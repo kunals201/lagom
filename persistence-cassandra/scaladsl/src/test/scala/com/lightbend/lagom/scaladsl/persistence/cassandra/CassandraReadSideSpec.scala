@@ -39,7 +39,6 @@ class CassandraReadSideSpec extends CassandraPersistenceSpec(CassandraReadSideSp
   override def getAppendCount(id: String): Future[Long] = readSide.getAppendCount(id)
 
   override def afterAll(): Unit = {
-    persistentEntityRegistry.gracefulShutdown(5.seconds)
     super.afterAll()
   }
 }

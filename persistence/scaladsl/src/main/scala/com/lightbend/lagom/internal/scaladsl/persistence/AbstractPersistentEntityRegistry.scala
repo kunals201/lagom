@@ -133,7 +133,4 @@ class AbstractPersistentEntityRegistry(system: ActorSystem) extends PersistentEn
     }
   }
 
-  override def gracefulShutdown(timeout: FiniteDuration): Future[Done] =
-    Future.successful(Done)
-
 }

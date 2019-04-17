@@ -51,6 +51,9 @@ object Dependencies {
 
   }
 
+  object test {
+    val akkaStreamTestkit = "com.typesafe.akka" %% "akka-stream-testkit" % Versions.Akka
+  }
   // Some setup before we start creating ModuleID vals
   private val slf4jApi = "org.slf4j" % "slf4j-api" % Versions.Slf4j
   private val slf4j: Seq[ModuleID] = Seq("jcl-over-slf4j", "jul-to-slf4j", "log4j-over-slf4j").map {
@@ -88,7 +91,7 @@ object Dependencies {
   private val akkaStream = "com.typesafe.akka" %% "akka-stream" % Versions.Akka
   private val akkaProfobuf = "com.typesafe.akka" %% "akka-protobuf" % Versions.Akka
 
-  private val akkaStreamTestkit = "com.typesafe.akka" %% "akka-stream-testkit" % Versions.Akka
+  /*private val akkaStreamTestkit = "com.typesafe.akka" %% "akka-stream-testkit" % Versions.Akka*/
   private val akkaTestkit = "com.typesafe.akka" %% "akka-testkit" % Versions.Akka
   private val reactiveStreams = "org.reactivestreams" % "reactive-streams" % "1.0.2"
 
@@ -470,7 +473,7 @@ object Dependencies {
 
   val `testkit-javadsl` = libraryDependencies ++= Seq(
     playAkkaHttpServer,
-    akkaStreamTestkit,
+    test.akkaStreamTestkit,
     scalaTest % Test,
     "junit" % "junit" % Versions.JUnit,
     h2 % Test,
@@ -481,7 +484,7 @@ object Dependencies {
 
   val `testkit-scaladsl` = libraryDependencies ++= Seq(
     playAkkaHttpServer,
-    akkaStreamTestkit,
+    test.akkaStreamTestkit,
     scalaTest % Test,
     "junit" % "junit" % Versions.JUnit,
     h2 % Test,
@@ -550,7 +553,7 @@ object Dependencies {
     akkaClusterTools,
     akkaTestkit % Test,
     akkaMultiNodeTestkit % Test,
-    akkaStreamTestkit % Test,
+    test.akkaStreamTestkit % Test,
     scalaTest % Test,
     junit % Test,
     "com.novocode" % "junit-interface" % "0.11" % Test
@@ -564,7 +567,7 @@ object Dependencies {
     akkaClusterTools,
     akkaTestkit % Test,
     akkaMultiNodeTestkit % Test,
-    akkaStreamTestkit % Test,
+    test.akkaStreamTestkit % Test,
     scalaTest % Test,
 
     // Upgrades needed to match whitelist
@@ -580,7 +583,7 @@ object Dependencies {
     play,
     akkaTestkit % Test,
     akkaMultiNodeTestkit % Test,
-    akkaStreamTestkit % Test,
+    test.akkaStreamTestkit % Test,
     scalaTest % Test,
     junit % Test,
     "com.novocode" % "junit-interface" % "0.11" % Test,

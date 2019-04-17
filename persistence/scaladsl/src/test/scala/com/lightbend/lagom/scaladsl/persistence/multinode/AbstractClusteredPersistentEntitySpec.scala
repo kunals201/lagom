@@ -220,7 +220,6 @@ abstract class AbstractClusteredPersistentEntitySpec(config: AbstractClusteredPe
       enterBarrier("before-3")
 
       runOn(node2) {
-        Await.ready(registry.gracefulShutdown(20.seconds), 20.seconds)
       }
       enterBarrier("node2-left")
 

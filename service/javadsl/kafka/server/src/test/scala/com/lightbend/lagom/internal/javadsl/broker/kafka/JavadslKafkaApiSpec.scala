@@ -422,8 +422,6 @@ object JavadslKafkaApiSpec {
     override def eventStream[Event <: AggregateEvent[Event]](aggregateTag: AggregateEventTag[Event], fromOffset: JOffset): JSource[JPair[Event, JOffset], NotUsed] =
       JSource.empty()
 
-    override def gracefulShutdown(timeout: FiniteDuration): CompletionStage[Done] = CompletableFuture.completedFuture(Done.getInstance())
-
     override def refFor[C](entityClass: Class[_ <: com.lightbend.lagom.javadsl.persistence.PersistentEntity[C, _, _]], entityId: String): PersistentEntityRef[C] =
       ???
 
